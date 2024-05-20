@@ -21,5 +21,5 @@ Machine learning combines fundamentals and technical aspects - application of st
 此程式必須先經過第二分頁的模型訓練。
 
 ## 高雄科技大學 金融資訊系 
-指導教授：楊耿杰老師
+指導教授：楊耿杰老師 \n
 學    生：張名華、陳衍赫、林嘉晟、林江山、鄧佳慶
