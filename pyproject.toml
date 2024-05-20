@@ -1,0 +1,29 @@
+[project]
+name = "QuantApp"
+version = "0.1.0"
+description = "Stock selection and trading model construction project"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pandas = "^1.5"
+backtrader = "^1.9"
+statsmodels = "^0.12"
+scikit-learn = "^0.24"
+pandas_market_calendars = "^1.6"
+numpy = "^1.21"
+pyarrow = "^5.0"
+seaborn = "^0.11"
+joblib = "^1.0"
+xlsxwriter = "^3.0"
+tkcalendar = "^2.0"
+pyportfolioopt = "^1.4"
+openpyxl = "^3.0"
+flet = "^0.22"
+yfinance = "^0.1"
+tqdm = "^4.62"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
