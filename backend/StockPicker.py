@@ -50,7 +50,7 @@ class StockPicker:
                 date = date + timedelta(days=1)
                 data = await self.download_data(stock_codes, date, retry_count + 1)
             elif data.columns.nlevels == 2:
-                missing_stock_codes = [code for code in stock_codes_str if code not in data['Close'].columns]
+                missing_stock_codes = [code for code in stock_codes_str if code not in data['Adj Close'].columns]
                 if missing_stock_codes:
                     date = date + timedelta(days=1)
                     data = await self.download_data(missing_stock_codes, date, retry_count + 1)
@@ -66,7 +66,7 @@ class StockPicker:
             closing_prices = pd.DataFrame(columns=['Stock code', '財報發布日', 'Closing Price'])
             if data.columns.nlevels == 2:
                 for stock_code in stock_codes:
-                    closing_price = data['Close', f'{stock_code}.TW'].iloc[0]
+                    closing_price = data['Adj Close', f'{stock_code}.TW'].iloc[0]
                     new_entry = pd.DataFrame({'Stock code': [stock_code], '財報發布日': [pd.Timestamp(current_date)], 'Closing Price': [closing_price]})
                     if closing_prices.empty:
                         closing_prices = new_entry
@@ -74,7 +74,7 @@ class StockPicker:
                         closing_prices = pd.concat([closing_prices, new_entry], ignore_index=True)
             else:
                 for stock_code in stock_codes:
-                    closing_price = data['Close'].iloc[0]
+                    closing_price = data['Adj Close'].iloc[0]
                     closing_prices = pd.DataFrame({'Stock code': [stock_code], '財報發布日': [pd.Timestamp(current_date)], 'Closing Price': [closing_price]})
             return closing_prices
         except Exception as e:

@@ -16,7 +16,7 @@ class DataPreprocessor:
         # 添加 historical_data 目標值到 indicators_data
         data_set = indicators_data
 
-        data_set.insert(loc=len(data_set.columns), column='Return', value=historical_data['Close'])
+        data_set.insert(loc=len(data_set.columns), column='Return', value=historical_data['Adj Close'])
         data_set['Return'] = data_set['Return'].shift(-1)  # 向下位移一行
 
         # 將 index 轉換為列

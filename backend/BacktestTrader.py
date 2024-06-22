@@ -14,7 +14,7 @@ class BacktestTrader:
     def __init__(self, initial_cash_dict, multiplier, freq, unit, x_interval, start_datetime, end_datetime, results, historical_data, min_score, attributes=None, master=None):
 
         # 計算 mean_dict
-        mean_prices = historical_data["Close"].mean()
+        mean_prices = historical_data["Adj Close"].mean()
         trade_unit={}
         for symbol in mean_prices.index:
             trade_unit[symbol] = round(initial_cash_dict[symbol] / multiplier / mean_prices[symbol] / 1000, 3) 

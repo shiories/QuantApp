@@ -203,7 +203,7 @@ class ModelPage:
 
     def execute_strategy(self):
         sys.stdout = OutputRedirector(self.output_textbox)
-        sys.stderr = OutputRedirector(self.output_textbox)
+        #sys.stderr = OutputRedirector(self.output_textbox)
 
         for button in self.download_buttons:
             button.visible = False

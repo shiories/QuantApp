@@ -25,6 +25,11 @@ class IndicatorsCalculator:
     
         # 從股票資料中提取相關的欄位
         prices = symbol_data
+            # 刪除Close列
+        prices = prices.drop(columns=['Close'])
+        # 將Adj Close重命名為Close
+        prices = prices.rename(columns={'Adj Close': 'Close'})
+        
         #print("calculate_indicators-prices:",prices)
         
         # 使用 talib 計算常見的技術指標

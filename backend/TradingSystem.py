@@ -87,7 +87,7 @@ class TradingSystem:
             return None
 
          # 從價格資料表格中取得當天特定股票的收盤價格
-        price = pd.to_numeric(self.prices_df.loc[date, ('Close', symbol)], errors='coerce')
+        price = pd.to_numeric(self.prices_df.loc[date, ('Adj Close', symbol)], errors='coerce')
         cost = price * actual_quantity
 
         # 計算滑點交易成本
@@ -171,7 +171,7 @@ class TradingSystem:
             return None
 
         # 從價格表格中獲取當前價格
-        current_prices = self.prices_df.loc[self.prices_df.index[-1], "Close"]
+        current_prices = self.prices_df.loc[self.prices_df.index[-1], "Adj Close"]
 
         if isinstance(current_prices, pd.Series):
             current_prices = current_prices.to_dict()
